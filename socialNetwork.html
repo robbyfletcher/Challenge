@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>The new social network for words!</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="jquery-2.1.1.min.js"></script>
+        <script src="friendFinder.js"></script>
+        <script src="randomlist.js"></script>
+    <head>
+
+    <body onload="return onLoad();">
+        <div id="header"><form onsubmit="return onSubmit();">
+            <input type="search" class="search" id="searchbar" onclick="this.select()">
+        </form></div>
+        
+        <div id="friendsContainer">
+            <div id="friends"></div>
+        </div>
+        <div id="footer"><center>Robert Fletcher, Sept. 11, 2014</center></div>
+
+        <script> 
+            var network = new Array();
+            function onSubmit() {
+                window.location.href = window.location.pathname+ "?" + document.getElementById("searchbar").value;
+                return false;
+            } 
+            function onLoad() {
+                if(document.getElementById("searchbar").value != "") {
+                    findSocialNetwork(document.getElementById("searchbar").value, network);
+                    if(network.length != 0) {
+                        document.getElementById("friends").innerHTML += "<b>The social network for " 
+                        + document.getElementById("searchbar").value + ":<br><br></b>";
+                        for(i = 0; i < network.length; i++) {
+                            document.getElementById("friends").innerHTML += network[i] + "<br>";   
+                        }
+                        findFriends(document.getElementById("searchbar").value, network);
+                        for(i = 0; i < network.length; i++) {
+                            findFriends(network[i], network);
+                        }
+                    }
+                    else {
+                        document.getElementById("friends").innerHTML += "<b>:(</b><br><br> We're sorry, but"
+                        + " that word is not in this social network.";
+                    }
+                }
+                return false;
+            }                
+            document.getElementById("searchbar").value = window.location.search.substring(1);   
+            
+            if(document.getElementById("searchbar").value == "") {
+                document.getElementById("friends").innerHTML = "Hi! Enter a word above to find its social network.";
+            }
+        </script>
+    </body>
+</html>
