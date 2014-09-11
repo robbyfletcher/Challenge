@@ -1,3 +1,14 @@
+# Finished Product
+
+## Python Solution
+So initially, I decided to solve this problem using python. So within the 
+python folder, you will find my solution.
+
+## Web/Javascript Solution - [Link](http://robbyfletcher.github.io/Challenge)
+After thinking about this problem, I had a thought; since social networks are 
+typically web based, why not make this one web based? So I decided to create
+a website to emulate this social network. 
+
 # Challenge Time
 
 ## Introduction
