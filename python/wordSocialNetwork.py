@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 def wordListConfig(wordList):      # Loads the word list and sorts it
      wordsFile = open('../randomlist.txt','r')
      for line in wordsFile:
