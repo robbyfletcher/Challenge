@@ -1,14 +1,9 @@
-# Challenge Time
+# Web/Javascript Solution
 
-## Introduction
-Two words are friends if they have a Levenshtein distance of 1. That is, you
-can add, remove, or substitute exactly one letter in word X to create word Y.
-A word’s social network consists of all of its friends, plus all of their
-friends, and all of their friends’ friends, and so on.
+A couple of notes: firstly, this would not be a viable option for a 
+real social network, as there is virtually no security. I just 
+converted the list of random words to a javascript file with them 
+all in an array. However, with my resources being limited as far as
+not being able to provide a backend, I thought that should be okay.
 
-## Problem
-Write a program in your favorite dynamic language that efficiently finds the
-social network for any given word, using the word list provided.
-
-## Submission
-Please email your completed program to careers@waypaver.co
+The website can be accessed at [robbyfletcher.github.io/Challenge](http://robbyfletcher.github.io/Challenge)
