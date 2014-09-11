@@ -1,10 +1,10 @@
-def wordListConfig(wordList):      # Loads the word list, sorts it, and
+def wordListConfig(wordList):      # Loads the word list and sorts it
      wordsFile = open('../randomlist.txt','r')
      for line in wordsFile:
           wordList.append(line.rstrip())
      wordList.sort()
 
-def findFriends(word, friends):
+def findFriends(word, friends):    # Finds friends of any given word
      friends = []
      for line in wordList:
           if len(line) == len(word):
@@ -35,7 +35,7 @@ def findFriends(word, friends):
      for friend in friends:
           print(friend)
 
-def findSocialNetwork(word, socialNetwork):
+def findSocialNetwork(word, socialNetwork):  # Finds all connections on social media
      for line in wordList:
           if len(line) == len(word):
                diff = 0
@@ -63,23 +63,32 @@ def findSocialNetwork(word, socialNetwork):
                          socialNetwork.append(line)
                          findSocialNetwork(line, socialNetwork)
 
+# Initializing arrays
 wordList = []
 socialNetwork = []
 friends = []
+
+# Running the config
 wordListConfig(wordList)
 
+# Getting input from the user
 word = raw_input("Hi! Enter a word to find its social network: ")
 
+# Finding all connections to a given word
 findSocialNetwork(word, socialNetwork)
+
+# Checking to see if any results were found
 if len(socialNetwork) != 0:
      print('')
      print('The social network for ' + word + ":")
      for friend in socialNetwork:
           print(friend)
+     # Finding friends of individual connections
      findFriends(word, friends)
      for friend in socialNetwork:
           findFriends(friend, friends)
 else:
+     # Telling the user that no connections were found
      print("")
      print(":(")
      print("")
